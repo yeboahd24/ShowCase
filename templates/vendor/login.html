@@ -1,6 +1,10 @@
-{% extends 'base.html' %}
+{% extends 'material/base.html' %}
+{% load materializecss %}{% block css%}
 
-{% block title %}Log in | {% endblock %}
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-rc.1/css/materialize.min.css" integrity="sha256-qj3p6P1fJIV+Ndv7RW1ovZI2UhOuboj9GcODzcNFIN8=" crossorigin="anonymous" /> {% endblock css %}
+
+{% block title %}Log in{% endblock %}
 
 {% block content %}
     <h1 class="title">Log in</h1>
@@ -8,12 +12,21 @@
     <form method="post" action=".">
         {% csrf_token %}
 
-        {{ form.as_p }}
+        {{form|materializecss }}
 
         <div class="field">
             <div class="control">
-                <button class="button is-dark is-uppercase">Log in</button>
+                <button class="btn waves-effect waves-light" type="submit" name="action">Login
+                <i class="material-icons right">send</i>
+                </button>
             </div>
         </div>
     </form>
+
+{% block javascript %}
+<script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-rc.1/js/materialize.min.js" integrity="sha256-SrBfGi+Zp2LhAvy9M1bWOCXztRU9Ztztxmu5BcYPcPE=" crossorigin="anonymous"></script>
+
+{% endblock javascript %}
 {% endblock %}

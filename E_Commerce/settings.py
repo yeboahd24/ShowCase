@@ -49,6 +49,7 @@ INSTALLED_APPS = [
     # external
     'material',
     'material.frontend',
+    'materializecssform'
 ]
 
 MIDDLEWARE = [
